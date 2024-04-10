@@ -1,0 +1,24 @@
+<launch>
+    <arg name="drone_name" />
+    
+    <group ns="/pid_controller/$(arg drone_name)">
+        <node name="controller" pkg="drone_pathfinding" type="takeoff.py" output="screen">
+            <param name="drone_name" type="string" value="$(arg drone_name)" />
+
+            <param name="kp_x" type="double" value="0.30" />
+            <param name="kp_y" type="double" value="0.30" />
+            <param name="kp_z" type="double" value="0.80" />
+            <param name="kp_yaw" type="double" value="0.30" />
+
+            <param name="kd_x" type="double" value="0.05" />
+            <param name="kd_y" type="double" value="0.05" />
+            <param name="kd_z" type="double" value="0.05" />
+            <param name="kd_yaw" type="double" value="0.05" />
+
+            <param name="goal_xyz_threshold" type="double" value="0.1" />
+            <param name="goal_yaw_threshold" type="double" value="5.0" />
+            
+            <param name="update_perdiod_sec" type="double" value="0.05" />
+        </node>
+    </group>
+</launch>
