@@ -36,9 +36,6 @@ Follow the tutorial [here](https://github.com/ishkapoor2000/Install_ROS_Noetic_O
 ROS Wrapper
 =================
 
-Setup
-------------
-
 If your default GCC version is not 8 or above (check using `gcc --version`) on the Ubuntu terminal:
 * Install gcc >= 8.0.0: `sudo apt-get install gcc-8 g++-8`
 * Verify installation by `gcc-8 --version`
@@ -47,9 +44,8 @@ For Ubuntu 20.04:
 * Install tf2 sensor and mavros packages: `sudo apt-get install ros-noetic-tf2-sensor-msgs ros-noetic-tf2-geometry-msgs ros-noetic-mavros*`
 * Install catkin_tools: `pip install "git+https://github.com/catkin/catkin_tools.git#egg=catkin_tools"`
 
-Build 
-------------
 
+Clone the Colosseum repository and build it:
 ```
 git clone https://github.com/Microsoft/Colosseum.git;
 cd AirSim;
@@ -63,17 +59,13 @@ echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-Build ROS package
-------------------
-
+Build ROS package:
 ```
 cd ros;
 catkin build; # or catkin_make
 ```
 
-Running
---------
-
+Launch the node:
 ```
 source devel/setup.bash;
 roslaunch airsim_ros_pkgs airsim_node.launch;
