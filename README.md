@@ -9,25 +9,29 @@ Step 1: Install Unreal Engine
 ----------------
 Go to the Epic Games store and download `Unreal Engine 5.2`
 
-`Note`: Colosseum doesn't work for versions of Unreal Engine < 5.0. Also, at the time of the creation of this repository it does not work for Unreal Engine 5.3, hence we opted for Unreal Engine 5.2
+`Note`: Colosseum requires Unreal Engine 5.0 or higher. Currently, it does not support Unreal Engine 5.3.
 
 Step 2: Build Colosseum
 ----------------
 
-* Install `Visual Studio 2022`. Make sure to select Desktop Development with C++ and the latest version of Windows 10 SDK. Also the latest .NET Framework SDK under the 'Individual Components' tab.
+* Install `Visual Studio 2022`. Make sure to select `Desktop Development with C++` and the latest version of `Windows 10 SDK`. Also, under 'Individual Components' tab, select the latest version of `.NET Framework SDK`.
 * Start Developer Command Prompt for VS 2022.
-* Clone the repo: `git clone https://github.com/CodexLabsLLC/Colosseum.git`, and go to the AirSim directory by `cd AirSim`.
+* Clone the repository: 
+```
+git clone https://github.com/CodexLabsLLC/Colosseum.git`
+cd Colosseum.
+```
 * Run `build.cmd` from the command line. This will create ready to use plugin bits in the `Colosseum/Unreal/Plugins` folder that can be dropped into any Unreal project.
 
 Step 3: Creating and Setting Up Unreal Environment
 ---------------------
 
-For this step you can follow the official documentation of Airsim: https://microsoft.github.io/AirSim/unreal_custenv/
+Follow the official documentation of AirSim [here](https://microsoft.github.io/AirSim/unreal_custenv/) for setting up the Unreal environment.
 
 ROS Noetic Installation on WSL2
 ==========================
 
-For ROS Noetic installation on WSL2 you can follow this tutorial: https://github.com/ishkapoor2000/Install_ROS_Noetic_On_WSL?tab=readme-ov-file
+Follow the tutorial [here](https://github.com/ishkapoor2000/Install_ROS_Noetic_On_WSL?tab=readme-ov-file) for installing ROS Noetic on WSL2.
 
 ROS Wrapper
 =================
@@ -35,11 +39,11 @@ ROS Wrapper
 Setup
 ------------
 
-If your default GCC version is not 8 or above (check using `gcc --version`) on the Ubuntu terminal.
+If your default GCC version is not 8 or above (check using `gcc --version`) on the Ubuntu terminal:
 * Install gcc >= 8.0.0: `sudo apt-get install gcc-8 g++-8`
 * Verify installation by `gcc-8 --version`
 
-Ubuntu 20.04
+For Ubuntu 20.04:
 * Install tf2 sensor and mavros packages: `sudo apt-get install ros-noetic-tf2-sensor-msgs ros-noetic-tf2-geometry-msgs ros-noetic-mavros*`
 * Install catkin_tools: `pip install "git+https://github.com/catkin/catkin_tools.git#egg=catkin_tools"`
 
@@ -54,7 +58,6 @@ cd AirSim;
 ```
 
 Add the source command to your .bashrc for convenience:
-
 ```
 echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
@@ -79,10 +82,8 @@ roslaunch airsim_ros_pkgs airsim_node.launch;
 Test the Bridge between ROS and Unreal Engine
 ===========================
 
-Now, that you are all set go to your Windows settings -> Network and Internet -> Properties -> Copy the IPV4 Address
-
-In Windows go to your `Documents/AirSim` folder, open the `settings.json` file and change it like that (swap "hostname" with your IPV4 Address):
-
+* Obtain your IPV4 Address from Windows settings -> Network and Internet -> Properties.
+* In the `Documents/AirSim/settings.json` file on Windows, replace "hostname" with your IPV4 Address. Or you can copy and paste this:
 ```
 {
   "SettingsVersion": 1.2,
@@ -96,12 +97,21 @@ In Windows go to your `Documents/AirSim` folder, open the `settings.json` file a
   }
 }
 ```
+* In the Ubuntu terminal, navigate to `<your_workspace>/src/AirSim/ros/src/launch` and open `airsim_node.launch`, replacing "hostname" with your IPV4 Address.
+* Navigate to `Colosseum/Unreal/Environments/Blocks` on Windows and double-click on `Blocks.uproject` to open the test project in Unreal Engine.
 
-Then, in the Ubuntu terminal navigate through your workspace `catkin_ws/src/AirSim/ros/src/launch` and open the `airsim_node.launch` by typing the command: `gedit airsim_node.launch`
-Here you have to change "hostname" with your IPV4 Address just like in the previous step.
+`Note`: In the content browser, click on Settings and tick "Show Plugin Content". Also, in Edit -> Editor Preferences, type "cpu" in the search bar and untick "Use Less CPU when in Background" for a smoother experience.
 
-For testing everything until now, in Windows where you installed Colosseum, you have to navigate through `Colosseum/Unreal/Environments/Blocks` and double-click on the `Blocks_environment.uproject`.
-This will open a debug project inside Unreal Engine. Note that in the content browser you'll have to click on the settings icon and tick "Show Plugin Content" and also in project settings you'll have to type cpu in the searchbar and untick the option that will appear to have a smoother experience.
+Finally, run the simulation in Unreal Engine, and then, in the Ubuntu terminal, execute: 
+```
+roslaunch airsim_ros_pkgs airsim_node.launch output:=screen
+```
+This will launch the ROS node and establish communication with Unreal Engine for testing
+
+Project 
+==============
+
+Now that everything is set, in order to open and run our project you first need to go in the Epic Games Marketplace and search for Cesium plugin, download it and open our project. You'll have to go to edit->plugin in Unreal Engine and search for Cesium, activate it.
 
 
 
