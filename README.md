@@ -81,7 +81,7 @@ Test the Bridge between ROS and Unreal Engine
 
 Now, that you are all set go to your Windows settings -> Network and Internet -> Properties -> Copy the IPV4 Address
 
-In Windows go to your Documents/AirSim folder, open the settings.json file and change it like that (swap "hostname" with your IPV4 Address):
+In Windows go to your `Documents/AirSim` folder, open the `settings.json` file and change it like that (swap "hostname" with your IPV4 Address):
 
 ```
 {
@@ -96,6 +96,14 @@ In Windows go to your Documents/AirSim folder, open the settings.json file and c
   }
 }
 ```
+
+Then, in the Ubuntu terminal navigate through your workspace `catkin_ws/src/AirSim/ros/src/launch` and open the `airsim_node.launch` by typing the command: `gedit airsim_node.launch`
+Here you have to change "hostname" with your IPV4 Address just like in the previous step.
+
+For testing everything until now, in Windows where you installed Colosseum, you have to navigate through `Colosseum/Unreal/Environments/Blocks` and double-click on the `Blocks_environment.uproject`.
+This will open a debug project inside Unreal Engine. Note that in the content browser you'll have to click on the settings icon and tick "Show Plugin Content" and also in project settings you'll have to type cpu in the searchbar and untick the option that will appear to have a smoother experience.
+
+
 
 
 
