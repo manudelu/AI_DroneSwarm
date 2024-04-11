@@ -32,6 +32,9 @@ For ROS Noetic installation on WSL2 you can follow this tutorial: https://github
 ROS Wrapper
 =================
 
+Setup
+------------
+
 If your default GCC version is not 8 or above (check using `gcc --version`) on the Ubuntu terminal.
 * Install gcc >= 8.0.0: `sudo apt-get install gcc-8 g++-8`
 * Verify installation by `gcc-8 --version`
@@ -39,6 +42,26 @@ If your default GCC version is not 8 or above (check using `gcc --version`) on t
 Ubuntu 20.04
 * Install tf2 sensor and mavros packages: `sudo apt-get install ros-noetic-tf2-sensor-msgs ros-noetic-tf2-geometry-msgs ros-noetic-mavros*`
 * Install catkin_tools: `pip install "git+https://github.com/catkin/catkin_tools.git#egg=catkin_tools"`
+
+Build 
+------------
+
+```
+git clone https://github.com/Microsoft/Colosseum.git;
+cd AirSim;
+./setup.sh;
+./build.sh;
+```
+
+Add the source command to your .bashrc for convenience:
+
+```
+echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+```
+
+
+
 
 
 
