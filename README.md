@@ -1,4 +1,4 @@
-## AI Drone Swarm
+# AI Drone Swarm
 
 Colosseum with Unreal Engine on Windows
 =============================
@@ -96,12 +96,16 @@ Finally, run the simulation in Unreal Engine, and then, in the Ubuntu terminal, 
 ```
 roslaunch airsim_ros_pkgs airsim_node.launch output:=screen
 ```
-This will launch the ROS node and establish communication with Unreal Engine for testing
+This will launch the ROS node and establish communication with Unreal Engine for testing. If there is no error, then you are all set!
 
 Project 
 ==============
 
-Now that everything is set, in order to open and run our project you first need to go in the Epic Games Marketplace and search for Cesium plugin, download it and open our project. You'll have to go to edit->plugin in Unreal Engine and search for Cesium, activate it.
+Download our project from ....
+
+Now that everything is set, download and install the Cesium plugin from the Epic Games Marketplace. Open the project in Unreal Engine, activate the Cesium plugin in plugin settings and restart Unreal Engine.
+
+Run this and that drom terminal ....
 
 
 
