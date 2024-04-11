@@ -60,6 +60,45 @@ echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
+Build ROS package
+------------------
+
+```
+cd ros;
+catkin build; # or catkin_make
+```
+
+Running
+--------
+
+```
+source devel/setup.bash;
+roslaunch airsim_ros_pkgs airsim_node.launch;
+```
+
+Test the Bridge between ROS and Unreal Engine
+===========================
+
+Now, that you are all set go to your Windows settings -> Network and Internet -> Properties -> Copy the IPV4 Address
+
+In Windows go to your Documents/AirSim folder, open the settings.json file and change it like that (swap "hostname" with your IPV4 Address):
+
+```
+{
+  "SettingsVersion": 1.2,
+  "SimMode": "Multirotor",
+  "LocalHostIp": "hostname",
+  "ApiServerPort": 41541,
+  "Vehicles": {
+    "Drone": {
+      "VehicleType": "SimpleFlight"
+    }
+  }
+}
+```
+
+
+
 
 
 
