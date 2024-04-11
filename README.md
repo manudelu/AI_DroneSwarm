@@ -1,6 +1,4 @@
-# AI Drone Swarm
-
-# Complete Installation and Setup
+## AI Drone Swarm
 
 Colosseum with Unreal Engine on Windows
 =============================
