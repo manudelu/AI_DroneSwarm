@@ -1,6 +1,6 @@
 # AI Drone Swarm
 
-Complete Installation - Colosseum with Unreal Engine 5.2 and ROS from WSL2
+Complete Installation - Colosseum with Unreal Engine 5.2 and ROS Noetic from WSL2
 =============================
 
 Step 1: Install Unreal Engine
