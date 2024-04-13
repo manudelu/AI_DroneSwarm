@@ -1,6 +1,6 @@
 # AI Drone Swarm
 
-Complete Installation - Colosseum with Unreal Engine 5.5 and ROS from WSL2
+Complete Installation - Colosseum with Unreal Engine 5.2 and ROS from WSL2
 =============================
 
 Step 1: Install Unreal Engine
@@ -105,7 +105,7 @@ Download our project from ....
 
 Now that everything is set, download and install the Cesium plugin from the Epic Games Marketplace. Open the project in Unreal Engine, activate the Cesium plugin in plugin settings and restart Unreal Engine.
 
-Run this and that drom terminal ....
+Run this and that from terminal ....
 
 
 
