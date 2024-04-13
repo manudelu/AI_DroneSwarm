@@ -1,6 +1,6 @@
 # AI Drone Swarm
 
-Colosseum with Unreal Engine on Windows
+Complete Installation - Colosseum with Unreal Engine 5.5 and ROS from WSL2
 =============================
 
 Step 1: Install Unreal Engine
@@ -26,13 +26,13 @@ Step 3: Creating and Setting Up Unreal Environment
 
 Follow the official documentation of AirSim [here](https://microsoft.github.io/AirSim/unreal_custenv/) for setting up the Unreal environment.
 
-ROS Noetic Installation on WSL2
-==========================
+Step 4: ROS Noetic Installation on WSL2
+--------------------
 
 Follow the tutorial [here](https://github.com/ishkapoor2000/Install_ROS_Noetic_On_WSL?tab=readme-ov-file) for installing ROS Noetic on WSL2.
 
-ROS Wrapper
-=================
+Step 5: ROS Wrapper
+----------------
 
 If your default GCC version is not 8 or above (check using `gcc --version`) on the Ubuntu terminal:
 * Install gcc >= 8.0.0: `sudo apt-get install gcc-8 g++-8`
@@ -69,8 +69,8 @@ source devel/setup.bash;
 roslaunch airsim_ros_pkgs airsim_node.launch;
 ```
 
-Test the Bridge between ROS and Unreal Engine
-===========================
+Step 6: Test the Bridge between ROS and Unreal Engine
+------------------
 
 * Obtain your IPV4 Address from Windows settings -> Network and Internet -> Properties.
 * In the `Documents/AirSim/settings.json` file on Windows, replace "hostname" with your IPV4 Address. Or you can copy and paste this:
