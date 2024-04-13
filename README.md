@@ -101,11 +101,11 @@ This will launch the ROS node and establish communication with Unreal Engine for
 Project 
 ==============
 
-Download our project from ....
+Download our project from this repository .....
 
 Now that everything is set, download and install the Cesium plugin from the Epic Games Marketplace. Open the project in Unreal Engine, activate the Cesium plugin in plugin settings and restart Unreal Engine.
 
-Run this and that from terminal ....
+Ope UE and the Ununtu terminal. run the simulation and then run this and that from terminal ......
 
 
 
