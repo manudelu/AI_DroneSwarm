@@ -73,7 +73,7 @@ Step 6: Test the Bridge between ROS and Unreal Engine
 ------------------
 
 * Obtain your IPV4 Address from Windows settings -> Network and Internet -> Properties.
-* In the `Documents/AirSim/settings.json` file on Windows, replace "hostname" with your IPV4 Address. Or you can copy and paste this:
+* In the `Documents/AirSim/settings.json` file on Windows, replace "hostname" with your IPV4 Address.
 ```
 {
   "SettingsVersion": 1.2,
