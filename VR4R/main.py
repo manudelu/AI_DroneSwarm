@@ -1,6 +1,7 @@
 import airsim
 import sys
 import time
+import math  # Add this line to import the math module
 from astar_algorithm import astar
 from waypoints import Waypoint
 from waypoints_loader import load_waypoints_from_json
@@ -42,14 +43,22 @@ z = -5
 print("Make sure we are hovering at {} meters...".format(-z))
 client.moveToZAsync(z, 1).join()
 
-# Execute the drone movement through waypoints
-print("Flying on path...")
-
+# Loop through waypoints and navigate while rotating to face each waypoint
 for i in range(len(path) - 1):
     current_waypoint = path[i]
     next_waypoint = path[i + 1]
+
+    # Calculate the yaw angle to face the next waypoint
+    dx = next_waypoint.position.x_val - current_waypoint.position.x_val
+    dy = next_waypoint.position.y_val - current_waypoint.position.y_val
+    yaw = math.degrees(math.atan2(dy, dx))
+
+    # Rotate the drone to face the next waypoint
+    client.rotateToYawAsync(yaw).join()
+
+    # Move towards the next waypoint
     print(f"Moving towards {next_waypoint.name}")
-    client.moveToPositionAsync(next_waypoint.position.x_val, next_waypoint.position.y_val, z, 1).join()
+    client.moveToPositionAsync(next_waypoint.position.x_val, next_waypoint.position.y_val, next_waypoint.position.z_val, 1).join()
     print(f"Reached {next_waypoint.name}")
 
 # Land the drone
