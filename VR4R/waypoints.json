@@ -1,0 +1,58 @@
+{
+  "waypoints": [
+    {
+      "name": "Waypoint 1",
+      "position": {"x": 0, "y": 0, "z": -5},
+      "neighbors": [{"neighbor": "Waypoint 2", "cost": 1}]
+    },
+    {
+      "name": "Waypoint 2",
+      "position": {"x": 5, "y": 0, "z": -5},
+      "neighbors": [
+        {"neighbor": "Waypoint 1", "cost": 1},
+        {"neighbor": "Waypoint 3", "cost": 2},
+        {"neighbor": "Waypoint 4", "cost": 1}
+      ]
+    },
+    {
+      "name": "Waypoint 3",
+      "position": {"x": 10, "y": 2, "z": -5},
+      "neighbors": [
+        {"neighbor": "Waypoint 2", "cost": 2},
+        {"neighbor": "Waypoint 5", "cost": 8}
+      ]
+    },
+    {
+      "name": "Waypoint 4",
+      "position": {"x": 12, "y": 5, "z": -5},
+      "neighbors": [
+        {"neighbor": "Waypoint 2", "cost": 1},
+        {"neighbor": "Waypoint 5", "cost": 2},
+        {"neighbor": "Waypoint 6", "cost": 1}
+      ]
+    },
+    {
+      "name": "Waypoint 5",
+      "position": {"x": 8, "y": 8, "z": -5},
+      "neighbors": [
+        {"neighbor": "Waypoint 3", "cost": 8},
+        {"neighbor": "Waypoint 4", "cost": 2},
+        {"neighbor": "Waypoint 6", "cost": 1},
+        {"neighbor": "Waypoint 7", "cost": 1}
+      ]
+    },
+    {
+      "name": "Waypoint 6",
+      "position": {"x": 4, "y": 10, "z": -5},
+      "neighbors": [
+        {"neighbor": "Waypoint 4", "cost": 1},
+        {"neighbor": "Waypoint 5", "cost": 1}
+      ]
+    },
+    {
+      "name": "Waypoint 7",
+      "position": {"x": 0, "y": 5, "z": -5},
+      "neighbors": [{"neighbor": "Waypoint 5", "cost": 1}]
+    }
+  ]
+}
