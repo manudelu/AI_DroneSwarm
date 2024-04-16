@@ -23,4 +23,3 @@ def load_waypoints_from_json(filename):
                 waypoints[waypoint_data['name']].add_neighbor(waypoints[neighbor_name], cost)
 
     return list(waypoints.values())  # Convert dictionary values to a list
-

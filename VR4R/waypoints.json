@@ -7,7 +7,7 @@
     },
     {
       "name": "Waypoint 2",
-      "position": {"x": 5, "y": 0, "z": -5},
+      "position": {"x": 15, "y": 0, "z": -5},
       "neighbors": [
         {"neighbor": "Waypoint 1", "cost": 1},
         {"neighbor": "Waypoint 3", "cost": 2},
