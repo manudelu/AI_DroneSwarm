@@ -1,0 +1,31 @@
+from binvox_rw import read_as_3d_array
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create an empty occupancy map with the same dimensions as the voxel grid
+#occupancy_map = np.zeros_like(voxel_data, dtype=np.bool_)
+
+# Assign 1 to occupied cells based on the voxel data
+#occupancy_map[voxel_data] = 1
+
+counts_per_row = []
+coords = []
+
+with open('plot.txt', 'r') as file:
+    for line in file:
+        # Count the occurrences of "#" in the line and append to the list
+        count = line.count("#")
+        counts_per_row.append(count)
+for i, count in enumerate(counts_per_row, start=1):
+    print(f"Row {i}: {count}")
+    coordinates.append((x, y, count))
+   
+plt.figure(figsize=(20, 20))
+plt.imshow(coordinates[:, :, 3], cmap='binary', origin='lower')
+plt.xlabel('X Coordinate')
+plt.ylabel('Y Coordinate')
+plt.title('Top-Down View of Blocks Environment (Slice)')
+plt.grid(True)
+plt.show()
+
+
