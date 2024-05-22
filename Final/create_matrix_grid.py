@@ -53,37 +53,32 @@ with open('map.csv', 'r') as csvfile:
                 map3[(i - 32, j)] = value
                 add_all_neighbors(grid3, i - 32, j, 24, len(row))
 
-with open('porcodio.txt', 'w') as txtfile:
+with open('output_prova1.txt', 'w') as txtfile:
     # Write map1 data
-    txtfile.write("Map1:\n")
     for key, value in map1.items():
         txtfile.write(f"{key}: {value}\n")
 
-    txtfile.write("\nMap1 Neighbors:\n")
+with open('output_neigh1.txt', 'w') as txtfile:
     for cell, neighbors in grid1.graph.items():
         neighbor_str = ', '.join([f"({x}, {y})" for x, y in neighbors])
         txtfile.write(f"Cell {cell}: Neighbors -> {neighbor_str}\n")
 
-    txtfile.write("\n")
-
+with open('output_prova2.txt', 'w') as txtfile:
     # Write map2 data
-    txtfile.write("\nMap2:\n")
     for key, value in map2.items():
         txtfile.write(f"{key}: {value}\n")
 
-    txtfile.write("\nMap2 Neighbors:\n")
+with open('output_neigh2.txt', 'w') as txtfile:
     for cell, neighbors in grid2.graph.items():
         neighbor_str = ', '.join([f"({x}, {y})" for x, y in neighbors])
         txtfile.write(f"Cell {cell}: Neighbors -> {neighbor_str}\n")
 
-    txtfile.write("\n")
-
+with open('output_prova3.txt', 'w') as txtfile:
     # Write map3 data
-    txtfile.write("\nMap3:\n")
     for key, value in map3.items():
         txtfile.write(f"{key}: {value}\n")
 
-    txtfile.write("\nMap3 Neighbors:\n")
+with open('output_neigh3.txt', 'w') as txtfile:
     for cell, neighbors in grid3.graph.items():
         neighbor_str = ', '.join([f"({x}, {y})" for x, y in neighbors])
         txtfile.write(f"Cell {cell}: Neighbors -> {neighbor_str}\n")
