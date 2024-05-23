@@ -6,7 +6,7 @@ map2 = {}
 map3 = {}
 
 # Open the CSV file for reading
-with open('map.csv', 'r') as csvfile:
+with open('new_map.csv', 'r') as csvfile:
     # Create a CSV reader object
     csvreader = csv.reader(csvfile)
 
@@ -24,19 +24,19 @@ with open('map.csv', 'r') as csvfile:
             else:
                 map3[(i, j - 32)] = value
 
-with open('output_prova1.txt', 'w') as txtfile:
-    # Write map1 data
+# Write map1 data to a CSV file
+with open('output_prova1.csv', 'w', newline='') as csvfile:
     for key, value in map1.items():
-        txtfile.write(f"{key}, {value}\n")
+        csvfile.write(f"({key[0]}, {key[1]}), {value}\n")
 
-with open('output_prova2.txt', 'w') as txtfile:
-    # Write map2 data
+# Write map2 data to a CSV file
+with open('output_prova2.csv', 'w', newline='') as csvfile:
     for key, value in map2.items():
-        txtfile.write(f"{key}, {value}\n")
+        csvfile.write(f"({key[0]}, {key[1]}), {value}\n")
 
-with open('output_prova3.txt', 'w') as txtfile:
-    # Write map3 data
+# Write map3 data to a CSV file
+with open('output_prova3.csv', 'w', newline='') as csvfile:
     for key, value in map3.items():
-        txtfile.write(f"{key}, {value}\n")
+        csvfile.write(f"({key[0]}, {key[1]}), {value}\n")
 
-print("Output written to output files.")
+print("Output written to CSV files.")
