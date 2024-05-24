@@ -58,13 +58,13 @@ def astar(grid, start, goal, obstacle_threshold):
             if grid[next_node] > obstacle_threshold:
                 continue # Skip this node if it's above the obstacle threshold
             # Calculate the movement cost
-            if abs(next_node[0] - current[0]) == 1 and abs(next_node[1] - current[1]) == 1:
-                move_cost = math.sqrt(2)  # Diagonal movement cost
-            else:
-                move_cost = 1  # Non-diagonal movement cost
+            #if abs(next_node[0] - current[0]) == 1 and abs(next_node[1] - current[1]) == 1:
+            #    move_cost = math.sqrt(2)  # Diagonal movement cost
+            #else:
+            #    move_cost = 1  # Non-diagonal movement cost
             
-            height_diff = abs(grid[next_node] - grid[current])
-            new_cost = cost_so_far[current] + move_cost + height_diff
+            #height_diff = abs(grid[next_node] - grid[current])
+            new_cost = cost_so_far[current]
 
             # If the neighbor has not been visited yet or the new cost is lower than previous cost
             if next_node not in cost_so_far or new_cost < cost_so_far[next_node]:

@@ -24,12 +24,12 @@ def save_to_csv(data, filename):
 # Example usage
 if __name__ == "__main__":
     # Load .binvox file
-    binvox_file = "map.binvox"
+    binvox_file = "new_map.binvox"
     binvox_data = load_binvox(binvox_file)
     
     # Extract 2.5D map data
     map_2D = extract_2_5D_map(binvox_data)
     
     # Save to CSV file
-    csv_file = "map.csv"
+    csv_file = "new_map.csv"
     save_to_csv(map_2D, csv_file)

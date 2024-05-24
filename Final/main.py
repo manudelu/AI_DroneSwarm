@@ -59,7 +59,7 @@ for waypoint in airsim_path:
 
 # Use moveOnPathAsync to follow the path
 print("Following the path...")
-f1 = client.moveOnPathAsync(airsim_path, velocity=2, vehicle_name="Drone1", 
+f1 = client.moveOnPathAsync(airsim_path, velocity=0.5, vehicle_name="Drone1", 
                             yaw_mode=airsim.YawMode(is_rate=False, yaw_or_rate=0.0), 
                             lookahead=-1, adaptive_lookahead=1)
 f1.join()
