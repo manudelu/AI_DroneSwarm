@@ -11,18 +11,18 @@ with open('new_map.csv', 'r') as csvfile:
     csvreader = csv.reader(csvfile)
 
     # Iterate over each row in the CSV file
-    for i, row in enumerate(csvreader):
+    for y, row in enumerate(csvreader):
         # Iterate over each value in the row
-        for j, value in enumerate(row):
+        for x, value in enumerate(row):
             # Convert the value to the appropriate data type if needed
             value = int(value)  # Assuming values are integers
 
-            if j <= 21:
-                map1[(i, j)] = value
-            elif 22 <= j <= 31:
-                map2[(i, j - 22)] = value
+            if y <= 21:
+                map1[(x, y)] = value
+            elif 22 <= y <= 31:
+                map2[(x, y - 22)] = value
             else:
-                map3[(i, j - 32)] = value
+                map3[(x, y - 32)] = value
 
 # Write map1 data to a CSV file
 with open('output_prova1.csv', 'w', newline='') as csvfile:
