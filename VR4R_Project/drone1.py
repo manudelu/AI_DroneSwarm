@@ -1,89 +1,63 @@
 import setup_path
 import airsim
-import pprint
-import sys
-import time
 from astar_algorithm import load_grid_from_csv, astar
 
-# Load the grid
-grid = load_grid_from_csv('map1.csv')
+def main():
+    # Load the grid map for Drone 1
+    map1 = load_grid_from_csv('map1.csv')
 
-# Define the start and goal positions
-start = (0, 0)
-goal = (48, 21)
+    # Define altitude control parameters
+    target_altitude = -5  # Target altitude (NED coordinates, so negative is up)
+    obstacle_threshold = 4  # Obstacle height threshold
 
-# Define the home position
-home = (0, 0) 
+    # Define the home and goal positions for Drone 1
+    home = (0, 0)
+    goal1 = (10, 0)
 
-# Define altitude control parameters
-target_altitude = -5  # Target altitude (NED coordinates, so negative is up)
-obstacle_threshold = 4  # Obstacle height threshold
+    # Run the A* algorithm and print the path
+    path1 = astar(map1, home, goal1, obstacle_threshold)
 
-# Run the A* algorithm and print the path
-path = astar(grid, start, goal, obstacle_threshold)
-print("Path:", path)
+    # Convert the path to a list of AirSim Vector3r objects with the correct Z coordinate
+    airsim_path1 = [airsim.Vector3r(x, y, target_altitude - map1[(x, y)] + 1) for x, y in path1]
 
-client = airsim.MultirotorClient()
-client.confirmConnection()
-print("Connected!")
+    client = airsim.MultirotorClient()
+    client.confirmConnection()
+    print("Drone1 connected!")
 
-client.enableApiControl(True, "Drone1")
+    client.enableApiControl(True, "Drone1")
+    print("Drone1 arming...")
+    client.armDisarm(True, "Drone1")
 
-print("Arming the drone...")
-client.armDisarm(True, "Drone1")
+    client.takeoffAsync(vehicle_name="Drone1").join()
 
-f1 = client.takeoffAsync(vehicle_name="Drone1")
-f1.join()
+    print(f"Drone1 hovering at {abs(target_altitude)} meters...")
+    client.moveToZAsync(target_altitude, 1, vehicle_name="Drone1").join()
 
-state = client.getMultirotorState(vehicle_name="Drone1")
-s = pprint.pformat(state1)
-print("state: %s" % s)
-
-# AirSim uses NED coordinates so negative axis is up.
-print("Make sure we are hovering at {} meters...".format(-target_altitude))
-f1 = client.moveToZAsync(target_altitude, 3, vehicle_name="Drone1")
-f1.join()
-
-# Convert the path to a list of AirSim Vector3r objects with the correct Z coordinate
-airsim_path = [airsim.Vector3r(x, y, target_altitude - grid[(x, y)] + 1) for x, y in path]
-
-# Print waypoints for debugging
-print("Waypoints with altitude adjustment:")
-for waypoint in airsim_path:
-    print("Waypoint:", waypoint)
-
-# Use moveOnPathAsync to follow the path
-print("Following the path...")
-f1 = client.moveOnPathAsync(airsim_path, velocity=3, vehicle_name="Drone1", 
+    # Use moveOnPathAsync to follow the path
+    print("Drone1 following the path...")
+    client.moveOnPathAsync(airsim_path1, velocity=3, vehicle_name="Drone1", 
                             yaw_mode=airsim.YawMode(is_rate=False, yaw_or_rate=0.0), 
-                            lookahead=-1, adaptive_lookahead=1)
-f1.join()
-print("Path followed successfully.")
+                            lookahead=-1, adaptive_lookahead=1).join()
+    print("Drone1 path followed successfully.")
 
-# Return home
-print("Returning home...")
-return_path = astar(grid, goal, home, obstacle_threshold)
-return_airsim_path = [airsim.Vector3r(x, y, target_altitude - grid[(x, y)] + 1) for x, y in return_path]
+    # Return home
+    print("Drone1 returning home...")
+    return_path1 = astar(map1, goal1, home, obstacle_threshold)
+    return_airsim_path1 = [airsim.Vector3r(x, y, target_altitude - map1[(x, y)] + 1) for x, y in return_path1]
 
-# Print waypoints for debugging
-print("Waypoints for return journey:")
-for waypoint in return_airsim_path:
-    print("Waypoint:", waypoint)
-
-# Use moveOnPathAsync to return to the home position
-f1 = client.moveOnPathAsync(return_airsim_path, velocity=3, vehicle_name="Drone1", 
+    client.moveOnPathAsync(return_airsim_path1, velocity=1, vehicle_name="Drone1", 
                             yaw_mode=airsim.YawMode(is_rate=False, yaw_or_rate=0.0), 
-                            lookahead=-1, adaptive_lookahead=1)
-f1.join()
-print("Returned home successfully.")
+                            lookahead=-1, adaptive_lookahead=1).join()
+    print("Drone1 returned home successfully.")
 
-# Land the drone
-print("Landing...")
-f1 = client.landAsync(vehicle_name="Drone1")
-f1.join()
+    # Land the drone
+    print("Drone1 landing...")
+    client.landAsync(vehicle_name="Drone1").join()
 
-print("Disarming...")
-client.armDisarm(False, "Drone1")
+    print("Drone1 disarming...")
+    client.armDisarm(False, "Drone1")
+    client.enableApiControl(False, "Drone1")
+    print("Drone1 done.")
 
-client.enableApiControl(False, "Drone1")
-print("Done.")
+if __name__ == "__main__":
+    main()

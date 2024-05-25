@@ -27,12 +27,12 @@ with open('map.csv', 'r') as csvfile:
             # Convert the value to the appropriate data type if needed
             value = int(value)  # Assuming values are integers
 
-            if y <= 21:
-                map1[(x, y)] = value
-            elif 22 <= y <= 31:
-                map2[(x, y - 22)] = value
+            if y <= 20:
+                 map1[(x - 3, y - 18)] = value
+            elif 21 <= y <= 31:
+                map2[(x - 3, y - 25)] = value
             else:
-                map3[(x, y - 32)] = value
+                map3[(x - 3, y - 32)] = value
 
 # Function to process each map and mark neighbors as obstacles
 def process_map(map_data):
