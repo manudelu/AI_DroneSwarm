@@ -31,23 +31,26 @@ def get_neighbors(position, grid):
             neighbors.append(neighbor)
     return neighbors
 
-# Define the A* pathfinding function
-def astar(grid, start, goal, obstacle_threshold):
+# Define the A* pathfinding function with battery consumption
+def astar(grid, start, goal, obstacle_threshold, initial_battery):
     # Initialize priority queue for frontier nodes
     open_set = PriorityQueue()
     # Put the starting node into the priority queue with priority 0
     open_set.put((0, start))
-    # Initialize dictionaries to track the previous node and cost so far for each node
+    # Initialize dictionaries to track the previous node, cost so far, and battery level for each node
     came_from = {}
     cost_so_far = {}
-    # Set the starting node's previous node to None and its cost so far to 0
+    battery_level = {}
+    # Set the starting node's previous node to None, its cost so far to 0, and initial battery level
     came_from[start] = None
     cost_so_far[start] = 0
+    battery_level[start] = initial_battery
 
     # The algorithm will run until the open set is empty
     while not open_set.empty():
         # Get the current node from the open set with the lowest priority
         _, current = open_set.get()
+
         # Check if the current node is the goal node, if so, exit the loop
         if current == goal:
             break
@@ -57,19 +60,30 @@ def astar(grid, start, goal, obstacle_threshold):
             # Check if the terrain height exceeds the obstacle threshold
             if grid[next_node] > obstacle_threshold:
                 continue # Skip this node if it's above the obstacle threshold
-            # Calculate the movement cost
-            #if abs(next_node[0] - current[0]) == 1 and abs(next_node[1] - current[1]) == 1:
-            #    move_cost = math.sqrt(2)  # Diagonal movement cost
-            #else:
-            #    move_cost = 1  # Non-diagonal movement cost
             
-            #height_diff = abs(grid[next_node] - grid[current])
-            new_cost = cost_so_far[current]
+            # Calculate the movement cost
+            if abs(next_node[0] - current[0]) == 1 and abs(next_node[1] - current[1]) == 1:
+                move_cost = math.sqrt(2)  # Diagonal movement cost
+            else:
+                move_cost = 1  # Non-diagonal movement cost
+            
+            # Calculate the height difference cost
+            height_diff = abs(grid[next_node] - grid[current])
+            new_cost = cost_so_far[current] + move_cost + height_diff
 
+            # Calculate the new battery level after the movement
+            new_battery_level = battery_level[current] - 0.5*(move_cost + height_diff)
+            
+            # Check if the new battery level is sufficient for the movement
+            if new_battery_level <= 0:
+                continue  # Skip this node if there's not enough battery
+            
             # If the neighbor has not been visited yet or the new cost is lower than previous cost
             if next_node not in cost_so_far or new_cost < cost_so_far[next_node]:
                 # Update the cost so far for the neighbor
                 cost_so_far[next_node] = new_cost
+                # Update the battery level for the neighbor
+                battery_level[next_node] = new_battery_level
                 # Calculate the priority of the neighbor based on its cost and heuristic
                 priority = new_cost + heuristic(next_node, goal)
                 # Put the neighbor into the open set with its priority
@@ -87,4 +101,9 @@ def astar(grid, start, goal, obstacle_threshold):
         current = came_from[current]
     # Reverse the path to get it from start to goal
     path.reverse()
-    return path
+
+    # Check if the battery is depleted before reaching the goal
+    if path[0] != start or battery_level[goal] <= 0:
+        return None, "Battery depleted before reaching the goal."
+
+    return path, round(battery_level[goal])

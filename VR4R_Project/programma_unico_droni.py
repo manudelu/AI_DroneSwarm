@@ -60,13 +60,13 @@ f3.join()
 
 # Use moveOnPathAsync to follow the path
 print("Following the path...")
-f1 = client.moveOnPathAsync(airsim_path1, velocity=1, vehicle_name="Drone1", 
+f1 = client.moveOnPathAsync(airsim_path1, velocity=1, vehicle_name="Drone1", drivetrain = airsim.DrivetrainType.ForwardOnly,
                             yaw_mode=airsim.YawMode(is_rate=False, yaw_or_rate=0.0), 
                             lookahead=-1, adaptive_lookahead=1)
-f2 = client.moveOnPathAsync(airsim_path2, velocity=1, vehicle_name="Drone2", 
+f2 = client.moveOnPathAsync(airsim_path2, velocity=1, vehicle_name="Drone2", drivetrain = airsim.DrivetrainType.ForwardOnly,
                             yaw_mode=airsim.YawMode(is_rate=False, yaw_or_rate=0.0), 
                             lookahead=-1, adaptive_lookahead=1)
-f3 = client.moveOnPathAsync(airsim_path3, velocity=1, vehicle_name="Drone3", 
+f3 = client.moveOnPathAsync(airsim_path3, velocity=1, vehicle_name="Drone3", drivetrain = airsim.DrivetrainType.ForwardOnly,
                             yaw_mode=airsim.YawMode(is_rate=False, yaw_or_rate=0.0), 
                             lookahead=-1, adaptive_lookahead=1)
 f1.join()
@@ -84,13 +84,13 @@ return_airsim_path2 = [airsim.Vector3r(x, y, target_altitude - map2[(x, y)] + 1)
 return_airsim_path3 = [airsim.Vector3r(x, y, target_altitude - map3[(x, y)] + 1) for x, y in return_path3]
 
 # Use moveOnPathAsync to return to the home position
-f1 = client.moveOnPathAsync(return_airsim_path1, velocity=1, vehicle_name="Drone1", 
+f1 = client.moveOnPathAsync(return_airsim_path1, velocity=1, vehicle_name="Drone1", drivetrain = airsim.DrivetrainType.ForwardOnly,
                             yaw_mode=airsim.YawMode(is_rate=False, yaw_or_rate=0.0), 
                             lookahead=-1, adaptive_lookahead=1)
-f2 = client.moveOnPathAsync(return_airsim_path2, velocity=1, vehicle_name="Drone2", 
+f2 = client.moveOnPathAsync(return_airsim_path2, velocity=1, vehicle_name="Drone2", drivetrain = airsim.DrivetrainType.ForwardOnly,
                             yaw_mode=airsim.YawMode(is_rate=False, yaw_or_rate=0.0), 
                             lookahead=-1, adaptive_lookahead=1)
-f3 = client.moveOnPathAsync(return_airsim_path3, velocity=1, vehicle_name="Drone3", 
+f3 = client.moveOnPathAsync(return_airsim_path3, velocity=1, vehicle_name="Drone3", drivetrain = airsim.DrivetrainType.ForwardOnly,
                             yaw_mode=airsim.YawMode(is_rate=False, yaw_or_rate=0.0), 
                             lookahead=-1, adaptive_lookahead=1)
 f1.join()

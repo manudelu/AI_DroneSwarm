@@ -18,3 +18,4 @@ if __name__ == "__main__":
     # Wait for all processes to finish
     for process in processes:
         process.join()
+        
