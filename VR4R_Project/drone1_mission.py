@@ -7,16 +7,16 @@ import time
 def return_home_if_low_battery(client, current_position, home, map_data, target_altitude, obstacle_threshold, status):
     if status < 30:
         print("Battery low! Returning home...")
-        return_path, status = astar(map_data, current_position, home, obstacle_threshold, status)
-        if return_path:
-            return_airsim_path = [airsim.Vector3r(x, y, target_altitude - map_data[(x, y)] + 1) for x, y in return_path]
-            client.moveOnPathAsync(return_airsim_path, velocity=3, vehicle_name="Drone1", drivetrain=airsim.DrivetrainType.ForwardOnly,
+        path, status = astar(map_data, current_position, home, obstacle_threshold, status)
+        if path:
+            return_path = [airsim.Vector3r(x, y, target_altitude - map_data[(x, y)] + 1) for x, y in path]
+            client.moveOnPathAsync(return_path, velocity=3, vehicle_name="Drone1", drivetrain=airsim.DrivetrainType.ForwardOnly,
                                    yaw_mode=airsim.YawMode(is_rate=False, yaw_or_rate=0.0), 
                                    lookahead=-1, adaptive_lookahead=1).join()
             print("Drone1 returned home successfully.")
             print(f"Remaining battery: {round(status)}%")
         else:
-            print("Failed to return home due to low battery or obstacle.")
+            print("Failed to return home due to critically low battery. Emergency landing...")
         return True
     return False
 
@@ -31,7 +31,7 @@ def main():
 
     # Define the home and goal positions for Drone 1
     home = (0, 0)
-    waypoints = [(40, -15), (10, -7), (40, -15), (15, 2)]
+    waypoints = [(40, -15), (10, -7), (45, -15), (15, 2)]
     current_position = home
 
     client = airsim.MultirotorClient()

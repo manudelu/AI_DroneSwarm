@@ -74,10 +74,6 @@ def astar(grid, start, goal, obstacle_threshold, initial_battery):
             # Calculate the new battery level after the movement
             new_battery_level = battery_level[current] - 0.5*(move_cost + height_diff)
             
-            # Check if the new battery level is sufficient for the movement
-            if new_battery_level <= 0:
-                continue  # Skip this node if there's not enough battery
-            
             # If the neighbor has not been visited yet or the new cost is lower than previous cost
             if next_node not in cost_so_far or new_cost < cost_so_far[next_node]:
                 # Update the cost so far for the neighbor
