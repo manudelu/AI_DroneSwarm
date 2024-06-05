@@ -34,7 +34,7 @@ Visit the official Anaconda website [here](https://www.anaconda.com/) and downlo
 Step 5: AirSim API
 ----------------------
 
-Open Anaconda Prompt and install the following packages:
+Open `Anaconda Prompt` and install the following packages:
 ```
 pip install msgpack-rpc-python
 pip install airsim
@@ -61,7 +61,7 @@ python hello_drone.py
 Project Setup
 =============================
 
-Download our Unreal Environment, of the Azienda Agricola Durin wineyard in Ortovero (Albenga), using this link: [insert link here]
+Download our Unreal Environment, of the `Azienda Agricola Durin` wineyard in `Ortovero (Albenga)`, using this link: [insert link here]
 
 Upon completion, navigate to the designated folder and open the settings.json file located at:
 ```
@@ -93,7 +93,7 @@ Within this file, insert the following configuration:
 }
 ```
 
-Once you've opened our project in Unreal Engine and initiated the simulation, proceed to download our repository. Navigate to the VR4R_Project directory and execute the following command in the terminal:
+Once you've opened our project in Unreal Engine and initiated the simulation, proceed to download our repository. Navigate to the `VR4R_Project` directory and execute the following command in the terminal:
 ```
 python main.py
 ```
