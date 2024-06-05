@@ -93,6 +93,15 @@ Within this file, insert the following configuration:
 }
 ```
 
+Once you've opened our project in Unreal Engine and initiated the simulation, proceed to download our repository. Navigate to the VR4R_Project directory and execute the following command in the terminal:
+```
+python main.py
+```
+
+This will prompt three additional terminals to appear, each dedicated to a single drone. You'll observe them autonomously navigating within the environment.
+
+
+
 
 
 
