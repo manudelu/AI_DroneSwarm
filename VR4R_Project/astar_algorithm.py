@@ -16,7 +16,7 @@ def load_grid_from_csv(file_path):
     with open(file_path, 'r') as file:
         reader = csv.reader(file)
         for row in reader:
-            x, y, height = int(row[0].strip('(')), int(row[1].strip(' )')), int(row[2])
+            x, y, height = int(row[0]), int(row[1]), int(row[2])
             grid[(x, y)] = height
     return grid
 

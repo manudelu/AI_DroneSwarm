@@ -1,63 +1,64 @@
 import csv
 
-# Initialize dictionaries to store the values
+# Initialize dictionaries to store the values for each map
 map1 = {}
 map2 = {}
 map3 = {}
 
-# Function to mark neighbors as obstacles
 def mark_neighbors_as_obstacles(grid, x, y):
+    """
+    Mark neighbors of a grid cell as obstacles if their height exceeds a threshold.
+
+    Args:
+        grid (dict): Dictionary representing the grid.
+        x (int): X-coordinate of the grid cell.
+        y (int): Y-coordinate of the grid cell.
+    """
     # Define the 8 possible neighbor directions
     directions = [(-1, 0), (1, 0), (0, -1), (0, 1),
                   (-1, -1), (-1, 1), (1, -1), (1, 1)]
     for dx, dy in directions:
         neighbor = (x + dx, y + dy)
+        # Check if the neighbor is within grid bounds and if its height exceeds the threshold
         if neighbor in grid and grid[neighbor] <= 5:
-            grid[neighbor] = 6  # Mark as obstacle with height greater than 5
+            grid[neighbor] = 6  # Mark as an obstacle
 
-# Open the CSV file for reading
+# Read the map data from the CSV file and populate the maps accordingly
 with open('map.csv', 'r') as csvfile:
-    # Create a CSV reader object
     csvreader = csv.reader(csvfile)
-
-    # Iterate over each row in the CSV file
     for y, row in enumerate(csvreader):
-        # Iterate over each value in the row
         for x, value in enumerate(row):
-            # Convert the value to the appropriate data type if needed
-            value = int(value)  # Assuming values are integers
-
+            value = int(value)
+            # Determine which map the grid cell belongs to based on its y-coordinate
             if y <= 20:
-                 map1[(x - 3, y - 18)] = value
+                map1[(x - 3, y - 18)] = value
             elif 21 <= y <= 31:
                 map2[(x - 3, y - 25)] = value
             else:
                 map3[(x - 3, y - 32)] = value
 
-# Function to process each map and mark neighbors as obstacles
-def process_map(map_data):
+# Process each map and mark neighbors as obstacles
+for map_data in [map1, map2, map3]:
     obstacle_positions = [key for key, value in map_data.items() if value > 5]
     for x, y in obstacle_positions:
         mark_neighbors_as_obstacles(map_data, x, y)
 
-# Process each map
-process_map(map1)
-process_map(map2)
-process_map(map3)
+def write_to_csv(map_data, filename):
+    """
+    Write map data to a CSV file.
 
-# Write map1 data to a CSV file
-with open('map1.csv', 'w', newline='') as csvfile:
-    for key, value in map1.items():
-        csvfile.write(f"({key[0]}, {key[1]}), {value}\n")
+    Args:
+        map_data (dict): Dictionary representing the map data.
+        filename (str): Name of the output CSV file.
+    """
+    with open(filename, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        for key, value in map_data.items():
+            writer.writerow([key[0], key[1], value])
 
-# Write map2 data to a CSV file
-with open('map2.csv', 'w', newline='') as csvfile:
-    for key, value in map2.items():
-        csvfile.write(f"({key[0]}, {key[1]}), {value}\n")
-
-# Write map3 data to a CSV file
-with open('map3.csv', 'w', newline='') as csvfile:
-    for key, value in map3.items():
-        csvfile.write(f"({key[0]}, {key[1]}), {value}\n")
+# Write each map data to a separate CSV file
+write_to_csv(map1, 'map1.csv')
+write_to_csv(map2, 'map2.csv')
+write_to_csv(map3, 'map3.csv')
 
 print("Output written to CSV files.")
