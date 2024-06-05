@@ -43,17 +43,17 @@ pip install airsim
 Step 6: Run the simulation on Blocks Environment
 ------------
 
-Navigate to the Colosseum installation folder and open the Blocks Environment:
+* Navigate to the Colosseum installation folder and open the Blocks Environment:
 ```
 .../Colosseum/Unreal/Environments/Blocks/Blocks.uproject
 ```
 
-Once opened, run the simulation, you should see the drone spawning within the environment. Then, in the terminal, navigate to this directory:
+* Once opened, run the simulation, you should see the drone spawning within the environment. Then, in the terminal, navigate to this directory:
 ```
 .../Colosseum/PythonClient/multirotor
 ```
 
-Here, try executing the programs to ensure everything is functioning correctly. For instance, type:
+* Here, try executing the programs to ensure everything is working correctly. For instance, type:
 ```
 python hello_drone.py
 ```
@@ -61,9 +61,9 @@ python hello_drone.py
 Project Setup
 =============================
 
-Download our Unreal Environment, of the `Azienda Agricola Durin` wineyard ([GoogleMaps](https://www.google.com/maps/@44.055636,8.1158116,3a,75y,172.07h,69.68t/data=!3m7!1e1!3m5!1sD8AFsJmaAaPj43LZ06iMDw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DD8AFsJmaAaPj43LZ06iMDw%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D89.79726%26pitch%3D0%26thumbfov%3D100!7i13312!8i6656?coh=205409&entry=ttu)) in `Ortovero (Albenga)`, by contacting us.
+* Download our Unreal Environment, of the `Azienda Agricola Durin` wineyard ([GoogleMaps](https://www.google.com/maps/@44.055636,8.1158116,3a,75y,172.07h,69.68t/data=!3m7!1e1!3m5!1sD8AFsJmaAaPj43LZ06iMDw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DD8AFsJmaAaPj43LZ06iMDw%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D89.79726%26pitch%3D0%26thumbfov%3D100!7i13312!8i6656?coh=205409&entry=ttu)) in `Ortovero (Albenga)`, by contacting us.
 
-Upon completion, navigate to the designated folder and open the settings.json file located at:
+* Upon completion, navigate to the designated folder and open the settings.json file located at:
 ```
 Documents/AirSim/settings.json
 ```
@@ -93,7 +93,7 @@ Within this file, insert the following configuration:
 }
 ```
 
-Once you've opened our project in Unreal Engine and initiated the simulation, proceed to download our repository. Navigate to the `VR4R_Project` directory and execute the following command in the terminal:
+* Once you've opened our project in Unreal Engine and initiated the simulation, proceed to download our repository. Navigate to the `VR4R_Project` directory and execute the following command in the terminal:
 ```
 python main.py
 ```
