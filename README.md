@@ -58,10 +58,40 @@ Here, try executing the programs to ensure everything is functioning correctly. 
 python hello_drone.py
 ```
 
+Project Setup
+=============================
 
+Download our Unreal Environment, of the Azienda Agricola Durin wineyard in Ortovero (Albenga), using this link: [insert link here]
 
+Upon completion, navigate to the designated folder and open the settings.json file located at:
+```
+Documents/AirSim/settings.json
+```
 
-
+Within this file, insert the following configuration:
+```
+{
+	"SeeDocsAt": "https://github.com/Microsoft/AirSim/blob/main/docs/settings.md",
+	"SettingsVersion": 1.2,
+	"SimMode": "Multirotor",
+	"ClockSpeed": 1,
+	
+	"Vehicles": {
+		"Drone1": {
+		  "VehicleType": "SimpleFlight",
+		  "X": 0, "Y": 0, "Z": 0
+		},
+		"Drone2": {
+		  "VehicleType": "SimpleFlight",
+		  "X": 0, "Y": 7, "Z": 0
+		},
+		"Drone3": {
+		  "VehicleType": "SimpleFlight",
+		  "X": 0, "Y": 14, "Z": 0
+		}
+    }
+}
+```
 
 
 
