@@ -15,6 +15,8 @@ Graphics: NVIDIA® GeForce® GTX 1050ti
 
 Since the project involves running three scripts concurrently, along with the AirSim simulation, it's advisable to have a more powerful PC to handle the increased CPU usage from these tasks. Additionally, a higher-performing system will help prevent slowdowns in the simulation caused by resource competition among the scripts.
 
+`Note`: Before running the simulation go to `Edit->Editor Preferences` in Unreal Editor, in the `Search` box type `CPU` and ensure that `Use Less CPU when in Background` is unchecked. If you don't do this then UE will be slowed down dramatically when UE window loses focus.
+
 Step 1: Install Unreal Engine 
 ----------------
 Visit the Epic Games store and download `Unreal Engine 5.2`
