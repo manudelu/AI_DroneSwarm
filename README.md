@@ -7,9 +7,11 @@ System Requirements (Minimum):
 --------------
 For optimal performance, consider a PC with higher specifications than the tested system.
 
-Processor: Intel® Core™ i5-6400
-Memory: 16 GB RAM
-Graphics: NVIDIA® GeForce® GTX 1050ti
+`Processor`: Intel® Core™ i5-6400
+
+`Memory`: 16 GB RAM
+
+`Graphics`: NVIDIA® GeForce® GTX 1050ti
 
 Since the project involves running three scripts concurrently, along with the AirSim simulation, it's advisable to have a more powerful PC to handle the increased CPU usage from these tasks. Additionally, a higher-performing system will help prevent slowdowns in the simulation caused by resource competition among the scripts.
 
