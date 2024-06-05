@@ -2,104 +2,103 @@ import csv
 from queue import PriorityQueue
 import math
 
-# Load the grid from a CSV file
 def load_grid_from_csv(file_path):
+    """
+    Load the grid map from a CSV file.
+
+    Args:
+        file_path (str): Path to the CSV file.
+
+    Returns:
+        dict: A dictionary representing the grid map where keys are (x, y) tuples and values are heights.
+    """
     grid = {}
     with open(file_path, 'r') as file:
         reader = csv.reader(file)
         for row in reader:
-            x, y, height = row[0], row[1], row[2]
-            # Parse the cell coordinates and height value
-            x = int(x.strip('('))
-            y = int(y.strip(' )'))
-            grid[(x, y)] = int(height)
+            x, y, height = int(row[0].strip('(')), int(row[1].strip(' )')), int(row[2])
+            grid[(x, y)] = height
     return grid
 
-# Define the heuristic function (Manhattan distance)
 def heuristic(a, b):
+    """
+    Calculate the Manhattan distance heuristic between two points.
+
+    Args:
+        a (tuple): The first point (x, y).
+        b (tuple): The second point (x, y).
+
+    Returns:
+        int: The Manhattan distance between the points.
+    """
     return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
-# Define a function to get the neighbors of a cell
 def get_neighbors(position, grid):
-    neighbors = []
-    # Include diagonal directions
+    """
+    Get the neighboring positions of a given position in the grid.
+
+    Args:
+        position (tuple): The current position (x, y).
+        grid (dict): The grid map.
+
+    Returns:
+        list: A list of neighboring positions (x, y).
+    """
     directions = [(1, 0), (-1, 0), (0, 1), (0, -1), 
-                  (1, 1), (1, -1), (-1, 1), (-1, -1)] # Down, Up, Right, Left, and 4 Diagonals
-    for direction in directions:
-        neighbor = (position[0] + direction[0], position[1] + direction[1])
-        if neighbor in grid:  # Check if the neighbor is within grid bounds
-            neighbors.append(neighbor)
+                  (1, 1), (1, -1), (-1, 1), (-1, -1)]  # Include diagonal directions
+    neighbors = [(position[0] + dx, position[1] + dy) for dx, dy in directions if (position[0] + dx, position[1] + dy) in grid]
     return neighbors
 
-# Define the A* pathfinding function with battery consumption
 def astar(grid, start, goal, obstacle_threshold, initial_battery):
-    # Initialize priority queue for frontier nodes
-    open_set = PriorityQueue()
-    # Put the starting node into the priority queue with priority 0
-    open_set.put((0, start))
-    # Initialize dictionaries to track the previous node, cost so far, and battery level for each node
-    came_from = {}
-    cost_so_far = {}
-    battery_level = {}
-    # Set the starting node's previous node to None, its cost so far to 0, and initial battery level
-    came_from[start] = None
-    cost_so_far[start] = 0
-    battery_level[start] = initial_battery
+    """
+    Perform the A* pathfinding algorithm.
 
-    # The algorithm will run until the open set is empty
+    Args:
+        grid (dict): The grid map.
+        start (tuple): The starting position (x, y).
+        goal (tuple): The goal position (x, y).
+        obstacle_threshold (int): The height threshold for obstacles.
+        initial_battery (float): The initial battery percentage.
+
+    Returns:
+        tuple: The path from start to goal and the remaining battery level.
+    """
+    open_set = PriorityQueue()
+    open_set.put((0, start))
+    came_from = {start: None}
+    cost_so_far = {start: 0}
+    battery_level = {start: initial_battery}
+
     while not open_set.empty():
-        # Get the current node from the open set with the lowest priority
         _, current = open_set.get()
 
-        # Check if the current node is the goal node, if so, exit the loop
         if current == goal:
             break
 
-        # Explore neighbors of the current node
         for next_node in get_neighbors(current, grid):
-            # Check if the terrain height exceeds the obstacle threshold
             if grid[next_node] > obstacle_threshold:
-                continue # Skip this node if it's above the obstacle threshold
-            
-            # Calculate the movement cost
-            if abs(next_node[0] - current[0]) == 1 and abs(next_node[1] - current[1]) == 1:
-                move_cost = math.sqrt(2)  # Diagonal movement cost
-            else:
-                move_cost = 1  # Non-diagonal movement cost
-            
-            # Calculate the height difference cost
+                continue  # Skip nodes above the obstacle threshold
+
+            move_cost = math.sqrt(2) if abs(next_node[0] - current[0]) == 1 and abs(next_node[1] - current[1]) == 1 else 1
             height_diff = abs(grid[next_node] - grid[current])
             new_cost = cost_so_far[current] + move_cost + height_diff
+            new_battery_level = battery_level[current] - 0.5 * (move_cost + height_diff)
 
-            # Calculate the new battery level after the movement
-            new_battery_level = battery_level[current] - 0.5*(move_cost + height_diff)
-            
-            # If the neighbor has not been visited yet or the new cost is lower than previous cost
             if next_node not in cost_so_far or new_cost < cost_so_far[next_node]:
-                # Update the cost so far for the neighbor
                 cost_so_far[next_node] = new_cost
-                # Update the battery level for the neighbor
                 battery_level[next_node] = new_battery_level
-                # Calculate the priority of the neighbor based on its cost and heuristic
                 priority = new_cost + heuristic(next_node, goal)
-                # Put the neighbor into the open set with its priority
                 open_set.put((priority, next_node))
-                # Update the previous node for the neighbor
                 came_from[next_node] = current
 
-    # Reconstruct the path from start to goal
     path = []
     current = goal
     while current is not None:
-        # Add the current node to the path
         path.append(current)
-        # Move to the previous node
-        current = came_from[current]
-    # Reverse the path to get it from start to goal
+        current = came_from.get(current)
     path.reverse()
 
-    # Check if the battery is depleted before reaching the goal
-    if path[0] != start or battery_level[goal] <= 0:
+    if path[0] != start or battery_level.get(goal, 0) <= 0:
         return None, "Battery depleted before reaching the goal."
 
     return path, round(battery_level[goal])
