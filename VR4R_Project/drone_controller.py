@@ -71,6 +71,9 @@ class DroneController:
             print(f"{self.drone_name} reached waypoint {waypoint}.")
             print(f"Remaining battery: {round(self.battery_status)}%")
             self.current_position = waypoint
+            #set shoot = True and pass it to blueprint
+
+        #shoot = False and pass it to blueprint
 
         self.state = DroneState.RETURN_HOME
 
