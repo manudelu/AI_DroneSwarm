@@ -3,7 +3,7 @@
 Complete Installation - Colosseum with Unreal Engine 5.2 and AirSim Python API
 =============================
 
-System Requirements (Minimum):
+Current System:
 --------------
 For optimal performance, consider a PC with higher specifications than the tested system.
 
