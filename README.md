@@ -105,6 +105,7 @@ Within this file, insert the following configuration:
     }
 }
 ```
+`Note`: The (X,Y) coordinates are chosen wrt where the player start is placed: cell (0,0) in our case.
 
 * Once you've opened our project in Unreal Engine and initiated the simulation, proceed to download our repository. Navigate to the `VR4R_Project` directory and execute the following command in the terminal:
 ```
