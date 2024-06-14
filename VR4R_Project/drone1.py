@@ -9,7 +9,13 @@ def main():
 
     # Load map and waypoints for Drone1
     map_data = load_grid_from_csv('map1.csv')
-    waypoints = [(40, -15), (10, -7), (45, -15), (15, 2)]
+    waypoints = [(34, 18), (26, 7), (45, 15), (15, 2)]
+    
+    # Get initial pose of the drone
+    initial_pose = client.simGetObjectPose("Drone1")
+    x_start = initial_pose.position.x_val
+    y_start = initial_pose.position.y_val
+    waypoints = [(x - x_start, y - y_start) for x, y in waypoints]
 
     controller = DroneController(client, "Drone1", config.home, waypoints, map_data, config.target_altitude, config.obstacle_threshold)
     controller.run()
