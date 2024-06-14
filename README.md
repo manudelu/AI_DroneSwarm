@@ -114,8 +114,6 @@ python main.py
 
 This will prompt three additional terminals to appear, each dedicated to a single drone. You'll observe them autonomously navigating within the environment.
 
-`Note`: If you want to generate the .binvox file you have to position the Unreal Engine's player start in the center of the map of coordinates (x=2800,y=2800) otherwise the map will be shifted since it takes the player start as it's origin.
-
 
 
 
