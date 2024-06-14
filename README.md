@@ -88,20 +88,19 @@ Within this file, insert the following configuration:
 	"SeeDocsAt": "https://github.com/Microsoft/AirSim/blob/main/docs/settings.md",
 	"SettingsVersion": 1.2,
 	"SimMode": "Multirotor",
-	"ClockSpeed": 1,
-	
+	"ClockSpeed": 1,	
 	"Vehicles": {
 		"Drone1": {
 		  "VehicleType": "SimpleFlight",
-		  "X": 0, "Y": 0, "Z": 0
+		  "X": 3, "Y": 18, "Z": 0
 		},
 		"Drone2": {
 		  "VehicleType": "SimpleFlight",
-		  "X": 0, "Y": 7, "Z": 0
+		  "X": 3, "Y": 25, "Z": 0
 		},
 		"Drone3": {
 		  "VehicleType": "SimpleFlight",
-		  "X": 0, "Y": 14, "Z": 0
+		  "X": 3, "Y": 32, "Z": 0
 		}
     }
 }
