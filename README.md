@@ -1,7 +1,5 @@
 # AI Drone Swarm
 
-![](media/vineyard.PNG)
-
 Complete Installation - Colosseum with Unreal Engine 5.2 and AirSim Python API
 =============================
 
@@ -116,7 +114,7 @@ python main.py
 
 This will prompt three additional terminals to appear, each dedicated to a single drone. You'll observe them autonomously navigating within the environment.
 
-
+![](media/vineyard.PNG)
 
 
 
