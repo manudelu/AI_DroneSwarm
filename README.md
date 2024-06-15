@@ -1,5 +1,7 @@
 # AI Drone Swarm
 
+![](media/vineyard.PNG)
+
 Complete Installation - Colosseum with Unreal Engine 5.2 and AirSim Python API
 =============================
 
