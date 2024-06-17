@@ -26,15 +26,16 @@ class DroneController:
         self.y_start = self.client.simGetObjectPose(self.drone_name).position.y_val
         self.state = DroneState.INIT
 
-    def get_initial_position(self):
+    def trigger_seed_drop(self, drop):
         """
-        Retrieve the initial position of the drone.
-
-        Returns:
-            tuple: Initial coordinates (x, y).
+        Trigger the Blueprint event to drop a seed.
         """
-        initial_pose = self.client.simGetObstaclePose(self.drone_name)
-        return (initial_pose.position.x_val, initial_pose.position.y_val)
+        command = "ce Print"
+        if drop == True:
+            print(f"{self.drone_name} dropping the seed ...")
+            self.client.simRunConsoleCommand(command)
+        else:
+            print(f"{self.drone_name} seed dropped successfully.")
 
     def run(self):
         """
@@ -104,12 +105,20 @@ class DroneController:
                 print(f"{self.drone_name} reached waypoint {real_waypoint}.")
                 print(f"Remaining battery: {round(self.battery_status)}%")
                 self.current_position = waypoint
+                time.sleep(1)
+
+                # Trigger the seed drop event when reaching the waypoint
+                #self.trigger_seed_drop(True)
+                #time.sleep(1)
+                #self.trigger_seed_drop(False)
+
             except Exception as e:
                 print(f"Failed to navigate to waypoint: {str(e)}")
                 self.state = DroneState.LAND
                 return
 
         self.state = DroneState.RETURN_HOME
+
 
     def return_home(self):
         """
