@@ -9,7 +9,7 @@ def main():
 
     # Load map and waypoints for Drone3
     map_data = load_grid_from_csv('map3.csv')
-    waypoints = [(20, 40), (35, 45)]
+    waypoints = [(4, 42), (30, 37), (10, 37), (44, 44)]
 
     # Get initial pose of the drone
     initial_pose = client.simGetObjectPose("Drone3")
