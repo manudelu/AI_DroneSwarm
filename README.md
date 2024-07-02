@@ -26,7 +26,7 @@ Visit the Epic Games store and download `Unreal Engine 5.2`
 Step 2: Build Colosseum
 ----------------
 
-* Install `Visual Studio 2022`. Make sure to select `Desktop Development with C++` and the latest version of `Windows 10 SDK`. Also, under 'Individual Components' tab, select the latest version of `.NET Framework SDK`.
+* Install [`Visual Studio 2022`](https://visualstudio.microsoft.com/it/vs/community/). Make sure to select `Desktop Development with C++` and the latest version of `Windows 10 SDK`. Also, under 'Individual Components' tab, select the latest version of `.NET Framework SDK`.
 * Launch Developer Command Prompt for VS 2022.
 * Clone the repository: 
 ```
