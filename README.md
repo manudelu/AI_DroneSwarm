@@ -34,14 +34,18 @@ To install Visual Studio 2022, follow these steps:
 
 Step 3: Build Colosseum
 ----------------
+Launch Visual Studio 2022 and navigate to `Tools` > `Command Line` and select `Developer Command Prompt`. In the Developer Command Promt:
 
-* Launch Developer Command Prompt for VS 2022.
-* Clone the repository: 
+* Enter the following commands to clone the official Colosseum repository and navigate to the Colosseum directory: 
 ```
 git clone https://github.com/CodexLabsLLC/Colosseum.git`
 cd Colosseum.
 ```
-* Execute `build.cmd` from the command line. This will create ready to use plugin bits in the `Colosseum/Unreal/Plugins` folder that can be dropped into any Unreal project.
+* Execute the `build.cmd` script by typing the following command:
+```
+build.cmd
+```
+This command will create the plugin files in the `Colosseum/Unreal/Plugins` folder that can be dropped into any Unreal project.
 
 Step 4: Creating and Setting Up Unreal Environment
 ---------------------
