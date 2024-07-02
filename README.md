@@ -28,11 +28,11 @@ Step 2: Install Visual Studio
 To install Visual Studio 2022, follow these steps:
 
 * Install `Visual Studio 2022` from the [official website](https://visualstudio.microsoft.com/it/vs/community/).
-* During the installation process, in the `Workloads` tab, select `Desktop Development with C++`.
+* Make sure to select `Desktop Development with C++` in the `Workloads` tab.
 * In the installation details that appear after selecting `Desktop Development with C++` ensure you check the box for the latest version of the `Windows 10 SDK`.
 * Then, go to the `Individual Components` tab and select the latest version of `.NET Framework SDK`.
 
-Step 2: Build Colosseum
+Step 3: Build Colosseum
 ----------------
 
 * Launch Developer Command Prompt for VS 2022.
@@ -43,17 +43,17 @@ cd Colosseum.
 ```
 * Execute `build.cmd` from the command line. This will create ready to use plugin bits in the `Colosseum/Unreal/Plugins` folder that can be dropped into any Unreal project.
 
-Step 3: Creating and Setting Up Unreal Environment
+Step 4: Creating and Setting Up Unreal Environment
 ---------------------
 
 Follow the official documentation of AirSim [here](https://microsoft.github.io/AirSim/unreal_custenv/) for setting up the Unreal environment.
 
-Step 4: Install Anaconda 
+Step 5: Install Anaconda 
 -----------------------
 
 Visit the official Anaconda website [here](https://www.anaconda.com/) and download it.
 
-Step 5: AirSim API
+Step 6: AirSim API
 ----------------------
 
 Open `Anaconda Prompt` and install the following packages:
@@ -62,7 +62,7 @@ pip install msgpack-rpc-python
 pip install airsim
 ```
 
-Step 6: Run the simulation on Blocks Environment
+Step 7: Run the simulation on Blocks Environment
 ------------
 
 * Navigate to the Colosseum installation folder and open the Blocks Environment:
