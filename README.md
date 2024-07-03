@@ -61,20 +61,13 @@ pip install airsim
 Step 5: Test Everything in the Blocks Environment 
 ---------------
 
-1. Open the Blocks Environment
-   
-   * Navigate to the installation folder of Colosseum and locate the `Blocks.uproject` file:
+* Navigate to the installation folder of Colosseum and locate the `Blocks.uproject` file:
 ```
 .../Colosseum/Unreal/Environments/Blocks/Blocks.uproject 
 ```
-   * Double-click `Blocks.uproject` to open it in Unreal Engine. This will launch Unreal Engine and load the Blocks environment.
-
-2. Run the Simulation
-   * Once the Blocks environment is open in Unreal Engine, start the simulation. You should see a drone spawning within the environment.
-
-3. Test with Anaconda Prompt
-
-  * Open the Anaconda Prompt and navigate to the directory containing the Python client for the Colosseum project:
+* Double-click `Blocks.uproject` to open it in Unreal Engine. This will launch Unreal Engine and load the Blocks environment.
+* Once the Blocks environment is open in Unreal Engine, start the simulation. You should see a drone spawning within the environment.
+* Open the Anaconda Prompt and navigate to the directory containing the Python client for the Colosseum project:
 ```
 .../Colosseum/PythonClient/multirotor
 ```
