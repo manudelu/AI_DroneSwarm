@@ -139,6 +139,17 @@ python main.py
 
 Three new terminal windows will open, displaying the log for each drone. In the simulation, you will see the drones move concurrently within the environment, each following a mission defined by moving between waypoints.
 
+Simulation
+===================
+
+Watch a simulation where only Drone1 navigates through 4 waypoints (38, 18), (47, 12), (12, 17) and (6, 11), then returns to its starting position (3, 18):
+
+
+
+Here is the terminal window displaying the log for Drone1:
+
+![](media/ConsoleDrone1.PNG)
+
 
 
 
