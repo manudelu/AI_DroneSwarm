@@ -111,6 +111,7 @@ Within this file, insert the following configuration:
 }
 ```
 `Note1`: The (X,Y) coordinates are chosen wrt where the player start is placed: cell (0,0) in our case.
+
 `Note2`: You can set the ViewMode to Manual to control the camera manually while in simulaion.
 ```
 "ViewMode": "Manual",	
