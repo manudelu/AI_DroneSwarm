@@ -123,7 +123,7 @@ python main.py
 
 This will prompt three additional terminals to appear, each dedicated to a single drone. You'll observe them autonomously navigating within the environment.
 
-![](media/vineyard.PNG)
+
 
 
 
