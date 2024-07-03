@@ -124,9 +124,9 @@ Within this file, insert the following configuration:
 ```
 `Note1`: The (X,Y) coordinates are chosen wrt where the player start is placed: cell (0,0) in our case.
 
-`Note2`: You can set the ViewMode to Manual to control the camera manually while in simulaion.
+`Note2`: You can modify the `settings.json` to set the `ViewMode` to `Manual` if you wish to control the camera manually (use wasd and arrows) during the simulaion. Otherwise, it will be fixed to follow Drone1. To do this, update the `ViewMode` setting as follows:
 ```
-"ViewMode": "Manual",	
+"ViewMode": "Manual"	
 ```
 
 * Once you've opened our project in Unreal Engine and initiated the simulation, proceed to download our `AI_DroneSwarm` repository. Then, navigate to the `VR4R_Project` directory in the Anaconda Prompt and execute the following command:
