@@ -1,5 +1,15 @@
 # Autonomous Drone Swarm Navigation
 
+Project Description
+==========================
+
+In this project, we address the challenge of autonomous drone swarm navigation within a simulated environment in Unreal Engine, employing the A* algorithm for pathfinding. Our work is divided into several phases: 
+* `Creating a Voxel Map`: Constructing a detailed 3D representation of the environment.
+* `Extracting a 2.5D Map`: Simplifying the 3D map to a 2.5D map for efficient path planning.
+* `Path planning`: Enabling drones to navigate the terrain between specified waypoints while considering various constraints.
+
+The goal is to enable drones to move between specified waypoints while taking into account battery constraints, altitude and obstacles. This system has the potential to evolve and perform specific tasks, such as seeding (partially implemented) and monitoring plants conditions.
+
 Complete Installation - Colosseum with Unreal Engine 5.2 and AirSim Python API
 =============================
 
@@ -117,12 +127,19 @@ Within this file, insert the following configuration:
 "ViewMode": "Manual",	
 ```
 
-* Once you've opened our project in Unreal Engine and initiated the simulation, proceed to download our `AI_DroneSwarm` repository. Navigate to the `VR4R_Project` directory in the Anaconda Prompt and execute the following command:
+* Once you've opened our project in Unreal Engine and initiated the simulation, proceed to download our `AI_DroneSwarm` repository. Then, navigate to the `VR4R_Project` directory in the Anaconda Prompt and execute the following command:
 ```
 python main.py
 ```
 
 This will prompt three additional terminals to appear, each dedicated to a single drone. You'll observe them autonomously navigating within the environment.
+
+Algorithms
+==================
+
+Video of the Simulation
+=====================
+
 
 
 
