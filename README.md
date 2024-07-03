@@ -47,39 +47,37 @@ build.cmd
 ```
 This command will create the plugin files in the `Colosseum/Unreal/Plugins` folder that can be dropped into any Unreal project.
 
-Step 4: Creating and Setting Up Unreal Environment
----------------------
-
-Follow the official documentation of AirSim [here](https://microsoft.github.io/AirSim/unreal_custenv/) for setting up the Unreal environment.
-
-Step 5: Install Anaconda 
------------------------
+Step 4: AirSim API
+----------------------
 
 Visit the official Anaconda website [here](https://www.anaconda.com/) and download it.
 
-Step 6: AirSim API
-----------------------
-
-Open `Anaconda Prompt` and install the following packages:
+Search on Windows `Anaconda Prompt`, open it and install the following packages:
 ```
 pip install msgpack-rpc-python
 pip install airsim
 ```
 
-Step 7: Run the simulation on Blocks Environment
-------------
+Step 5: Test Everything in the Blocks Environment 
+---------------
 
-* Navigate to the Colosseum installation folder and open the Blocks Environment:
+1. Open the Blocks Environment
+   * Navigate to the installation folder of Colosseum and locate the `Blocks.uproject` file:
 ```
-.../Colosseum/Unreal/Environments/Blocks/Blocks.uproject
+.../Colosseum/Unreal/Environments/Blocks/Blocks.uproject 
 ```
+   * Double-click `Blocks.uproject` to open it in Unreal Engine. This will launch Unreal Engine and load the Blocks environment.
 
-* Once opened, run the simulation, you should see the drone spawning within the environment. Then, in the terminal, navigate to this directory:
+2. Run the Simulation
+   * Once the Blocks environment is open in Unreal Engine, start the simulation. You should see a drone spawning within the environment.
+
+3. Test with Anaconda Prompt
+
+  * Open the Anaconda Prompt and navigate to the directory containing the Python client for the Colosseum project:
 ```
 .../Colosseum/PythonClient/multirotor
 ```
-
-* Here, try executing the programs to ensure everything is working correctly. For instance, type:
+  * Execute the example programs to ensure everything is functioning correctly. For instance, run the following command:
 ```
 python hello_drone.py
 ```
