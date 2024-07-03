@@ -130,6 +130,7 @@ Within this file, insert the following configuration:
 ```
 
 * Launch Unreal Engine and open your project. Start the simulation, and you will see a scene like this:
+  
 ![](media/vineyard.PNG)
 * Finally, download our `AI_DroneSwarm` repository. Then, navigate to the `VR4R_Project` directory in the Anaconda Prompt and execute the following command:
 ```
