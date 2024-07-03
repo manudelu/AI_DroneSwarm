@@ -92,7 +92,8 @@ Within this file, insert the following configuration:
 	"SeeDocsAt": "https://github.com/Microsoft/AirSim/blob/main/docs/settings.md",
 	"SettingsVersion": 1.2,
 	"SimMode": "Multirotor",
-	"ClockSpeed": 1,	
+	"ClockSpeed": 1,
+        "ViewMode": "",	
 	"Vehicles": {
 		"Drone1": {
 		  "VehicleType": "SimpleFlight",
@@ -109,9 +110,13 @@ Within this file, insert the following configuration:
     }
 }
 ```
-`Note`: The (X,Y) coordinates are chosen wrt where the player start is placed: cell (0,0) in our case.
+`Note1`: The (X,Y) coordinates are chosen wrt where the player start is placed: cell (0,0) in our case.
+`Note2`: You can set the ViewMode to Manual to control the camera manually while in simulaion.
+```
+"ViewMode": "Manual",	
+```
 
-* Once you've opened our project in Unreal Engine and initiated the simulation, proceed to download our repository. Navigate to the `VR4R_Project` directory and execute the following command in the terminal:
+* Once you've opened our project in Unreal Engine and initiated the simulation, proceed to download our `AI_DroneSwarm` repository. Navigate to the `VR4R_Project` directory in the Anaconda Prompt and execute the following command:
 ```
 python main.py
 ```
