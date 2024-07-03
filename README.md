@@ -62,6 +62,7 @@ Step 5: Test Everything in the Blocks Environment
 ---------------
 
 1. Open the Blocks Environment
+   
    * Navigate to the installation folder of Colosseum and locate the `Blocks.uproject` file:
 ```
 .../Colosseum/Unreal/Environments/Blocks/Blocks.uproject 
