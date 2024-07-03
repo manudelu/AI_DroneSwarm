@@ -10,6 +10,8 @@ In this project, we address the challenge of autonomous drone swarm navigation w
 
 The goal is to enable drones to move between specified waypoints while taking into account battery constraints, altitude and obstacles. This system has the potential to evolve and perform specific tasks, such as seeding (partially implemented) and monitoring plants conditions.
 
+![](media/drone.PNG)
+
 Complete Installation - Colosseum with Unreal Engine 5.2 and AirSim Python API
 =============================
 
@@ -132,7 +134,7 @@ Within this file, insert the following configuration:
 python main.py
 ```
 
-This will prompt three additional terminals to appear, each dedicated to a single drone. You'll observe them autonomously navigating within the environment.
+![](media/vineyard.PNG)
 
 Algorithms
 ==================
