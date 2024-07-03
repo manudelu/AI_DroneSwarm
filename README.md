@@ -129,18 +129,16 @@ Within this file, insert the following configuration:
 "ViewMode": "Manual"	
 ```
 
-* Once you've opened our project in Unreal Engine and initiated the simulation, proceed to download our `AI_DroneSwarm` repository. Then, navigate to the `VR4R_Project` directory in the Anaconda Prompt and execute the following command:
+* Launch Unreal Engine and open your project. Start the simulation, and you will see a scene like this:
+![](media/vineyard.PNG)
+* Finally, download our `AI_DroneSwarm` repository. Then, navigate to the `VR4R_Project` directory in the Anaconda Prompt and execute the following command:
 ```
 python main.py
 ```
 
-![](media/vineyard.PNG)
+Three new terminal windows will open, displaying the log for each drone. In the simulation, you will see the drones move concurrently within the environment, each following a mission defined by moving between waypoints.
 
-Algorithms
-==================
 
-Video of the Simulation
-=====================
 
 
 
