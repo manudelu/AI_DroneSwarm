@@ -93,7 +93,7 @@ Project Setup
 
 * Download our Unreal Environment, of the `Azienda Agricola Durin` wineyard ([GoogleMaps](https://www.google.com/maps/@44.055636,8.1158116,3a,75y,172.07h,69.68t/data=!3m7!1e1!3m5!1sD8AFsJmaAaPj43LZ06iMDw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DD8AFsJmaAaPj43LZ06iMDw%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D89.79726%26pitch%3D0%26thumbfov%3D100!7i13312!8i6656?coh=205409&entry=ttu)) in `Ortovero (Albenga)`, by contacting us.
 
-* Upon completion, navigate to the designated folder and open the settings.json file located at:
+* Upon completion, navigate to the designated folder and open the `settings.json` file located at:
 ```
 Documents/AirSim/settings.json
 ```
@@ -124,7 +124,7 @@ Within this file, insert the following configuration:
 ```
 `Note1`: The (X,Y) coordinates are chosen wrt where the player start is placed: cell (0,0) in our case.
 
-`Note2`: You can modify the `settings.json` to set the `ViewMode` to `Manual` if you wish to control the camera manually (use wasd and arrows) during the simulaion. Otherwise, it will be fixed to follow Drone1. To do this, update the `ViewMode` setting as follows:
+`Note2`: You can modify the `settings.json` to set the `ViewMode` to `Manual` if you wish to control the camera manually (by using WASD and arrows) during the simulaion. Otherwise, it will be fixed to follow Drone1. To do this, update the `ViewMode` setting as follows:
 ```
 "ViewMode": "Manual"	
 ```
