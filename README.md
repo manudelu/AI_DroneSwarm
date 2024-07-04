@@ -6,7 +6,7 @@ Project Description
 In this project, we address the challenge of autonomous drone swarm navigation within a simulated environment in Unreal Engine, employing the A* algorithm for pathfinding. Our work is divided into several phases: 
 * `Creating a Voxel Map`: Constructing a detailed 3D representation of the environment.
 * `Extracting a 2.5D Map`: Simplifying the 3D map to a 2.5D map for efficient path planning.
-* `Path planning`: Enabling drones to navigate the terrain between specified waypoints while considering various constraints.
+* `Pathfinding`: Enabling drones to navigate the terrain between specified waypoints while considering various constraints.
 
 The goal is to enable drones to move between specified waypoints while taking into account battery constraints, altitude and obstacles. This system has the potential to evolve and perform specific tasks, such as seeding (partially implemented) and monitoring plants conditions.
 
