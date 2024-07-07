@@ -8,7 +8,7 @@ In this project, we address the challenge of autonomous drone swarm navigation w
 * `Extracting a 2.5D Map`: Simplifying the 3D map to a 2.5D map for efficient path planning.
 * `Pathfinding`: Enabling drones to navigate the terrain between specified waypoints while considering various constraints.
 
-The goal is to enable drones to move between specified waypoints while taking into account battery constraints, altitude and obstacles. This system has the potential to evolve and perform specific tasks, such as seeding (partially implemented) and monitoring plants conditions.
+The goal is to enable drones to move between specified waypoints while taking into account battery constraints, altitude and obstacles. This system has the potential to evolve and perform specific tasks, such as seeding (implemented) and monitoring plants conditions.
 
 ![](media/drone.PNG)
 
