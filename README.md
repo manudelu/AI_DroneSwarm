@@ -148,7 +148,7 @@ https://github.com/manudelu/AI_DroneSwarm/assets/97695681/3fc44064-5587-4c31-8c8
 
 Here is the terminal window displaying the log for Drone1:
 
-![](media/ConsoleDrone1.PNG)
+![](media/Console.PNG)
 
 
 
