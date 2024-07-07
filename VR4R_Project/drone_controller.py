@@ -30,10 +30,14 @@ class DroneController:
         """
         Trigger the Blueprint event to drop a seed.
         """
-        command = "ce Print"
         if drop == True:
             print(f"{self.drone_name} dropping the seed ...")
-            self.client.simRunConsoleCommand(command)
+            if self.drone_name == "Drone1":
+                self.client.simRunConsoleCommand("ce Print1")
+            elif self.drone_name == "Drone2":
+                self.client.simRunConsoleCommand("ce Print2")
+            else:
+                self.client.simRunConsoleCommand("ce Print3")
         else:
             print(f"{self.drone_name} seed dropped successfully.")
 
