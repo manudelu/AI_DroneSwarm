@@ -108,9 +108,9 @@ class DroneController:
                 time.sleep(1)
 
                 # Trigger the seed drop event when reaching the waypoint
-                #self.trigger_seed_drop(True)
-                #time.sleep(1)
-                #self.trigger_seed_drop(False)
+                self.trigger_seed_drop(True)
+                time.sleep(1)
+                self.trigger_seed_drop(False)
 
             except Exception as e:
                 print(f"Failed to navigate to waypoint: {str(e)}")
