@@ -144,7 +144,7 @@ Simulation
 
 Watch a simulation where only Drone1 navigates through 4 waypoints (38, 18), (47, 12), (12, 17) and (6, 11), then returns to its starting position (3, 18):
 
-https://github.com/manudelu/AI_DroneSwarm/assets/97695681/250adc4b-a8ac-488a-8446-4964b476e4e2
+https://github.com/manudelu/AI_DroneSwarm/assets/97695681/3fc44064-5587-4c31-8c8f-694dbee7b6e3
 
 Here is the terminal window displaying the log for Drone1:
 
