@@ -161,18 +161,6 @@ Here is the terminal window displaying the log for Drone1:
 
 Note that the waypoint are in global coordinates, while the Unreal Engine log displays the local coordinates of Drone1.
 
-Contacts
--------------
-
----
-![122003663-abcb4e80-cdb3-11eb-9da5-4127e5e7d03e](https://github.com/manudelu/AI_DroneSwarm/assets/97695681/9ce9e876-ab76-4ea8-9dd8-fee57e3b39c2)[1]
-![122003663-abcb4e80-cdb3-11eb-9da5-4127e5e7d03e](https://github.com/manudelu/AI_DroneSwarm/assets/97695681/9ce9e876-ab76-4ea8-9dd8-fee57e3b39c2)[2]
----
-
-[1]: http://www.github.com/your_contact_info
-[2]: https://www.linkedin.com/in/your_contact_info
-
-
 
 
 
