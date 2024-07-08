@@ -10,7 +10,7 @@ In this project, we address the challenge of autonomous drone swarm navigation w
 
 The goal is to enable drones to move between specified waypoints while taking into account battery constraints, altitude and obstacles. This system has the potential to evolve and perform specific tasks, such as seeding (implemented) and monitoring plants conditions.
 
-![](media/drone.PNG)
+![drone](https://github.com/manudelu/AI_DroneSwarm/assets/97695681/2c0e7a6e-c223-4474-9b3c-96aba9dd249e)
 
 Complete Installation - Colosseum with Unreal Engine 5.2 and AirSim Python API
 =============================
@@ -138,7 +138,8 @@ Within this file, insert the following configuration:
 
 * Launch Unreal Engine and open your project. Start the simulation, and you will see a scene like this:
   
-![](media/vineyard.PNG)
+![vineyard](https://github.com/manudelu/AI_DroneSwarm/assets/97695681/10c863f9-2025-43a1-9962-8dc3d324d715)
+
 * Finally, download our `AI_DroneSwarm` repository. Then, navigate to the `VR4R_Project` directory in the Anaconda Prompt and execute the following command:
 ```
 python main.py
@@ -157,7 +158,7 @@ https://github.com/manudelu/AI_DroneSwarm/assets/97695681/3fc44064-5587-4c31-8c8
 
 Here is the terminal window displaying the log for Drone1:
 
-![](media/Console.PNG)
+![Console](https://github.com/manudelu/AI_DroneSwarm/assets/97695681/5b1cd370-f9f3-4d3f-99be-de379316879b)
 
 Note that the waypoint are in global coordinates, while the Unreal Engine log displays the local coordinates of Drone1.
 
