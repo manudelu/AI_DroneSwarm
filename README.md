@@ -29,6 +29,12 @@ Since the project involves running three scripts concurrently, along with the Ai
 
 `Note`: Before running the simulation go to `Edit->Editor Preferences` in Unreal Editor, in the `Search` box type `CPU` and ensure that `Use Less CPU when in Background` is unchecked. If you don't do this then UE will be slowed down dramatically when UE window loses focus.
 
+`Note`: The `Sky Atmosphere` appears pitch black for performance reasons. If you wish to adjust this, you can do the following:
+* Go to `Edit -> Project Settings`
+* In the Search Box, type `Forward Shading` and disable it
+* Also, search for `Support Sky Atmosphere Affecting Height Fog` and disable this setting as well
+* Finally, restart Unreal Engine to fix this problem
+
 Step 1: Install Unreal Engine 
 ----------------
 Visit the Epic Games store and download `Unreal Engine 5.2`
