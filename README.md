@@ -79,7 +79,7 @@ Step 5: Test Everything in the Blocks Environment
 ```
 * Double-click `Blocks.uproject` to open it in Unreal Engine. This will launch Unreal Engine and load the Blocks environment.
 * Once the Blocks environment is open in Unreal Engine, start the simulation. You should see a drone spawning within the environment.
-* If this is not the case, double-click on `Blocks.sln` file instead of `Blocks.uproject` to open Visual Studio 2022. Make sure that Blocks project is set as the startup project, and that the build configuration is set to `DebugGame_Editor` and `Win64`. Then, press `F5` to run the project and run the simulation inside Unreal Engine.
+* If this is not the case, double-click on `Blocks.sln` file instead of `Blocks.uproject` to open Visual Studio 2022. Make sure that Blocks project is set as the startup project, and that the build configuration is set to `DebugGame_Editor` and `Win64`. Then, press `F5` to run the project. Once opened, press the Play button in Unreal Editor to launch the simulation.
 * Open the Anaconda Prompt and navigate to the directory containing the Python client for the Colosseum project:
 ```
 .../Colosseum/PythonClient/multirotor
