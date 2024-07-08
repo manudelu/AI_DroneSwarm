@@ -37,9 +37,9 @@ class DroneController:
             print(f"{self.drone_name} dropping the seed ...")
 
             command_mapping = {
-                "Drone1": "ce Print1",
-                "Drone2": "ce Print2",
-                "Drone3": "ce Print3"
+                "Drone1": "ce Drop1",
+                "Drone2": "ce Drop2",
+                "Drone3": "ce Drop3"
             }
 
             command = command_mapping.get(self.drone_name)
