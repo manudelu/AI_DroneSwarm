@@ -26,18 +26,29 @@ class DroneController:
         self.y_start = self.client.simGetObjectPose(self.drone_name).position.y_val
         self.state = DroneState.INIT
 
-    def trigger_seed_drop(self, drop):
+    def trigger_seed_drop(self, should_drop_seed):
         """
         Trigger the Blueprint event to drop a seed.
+
+        Args:
+            should_drop_seed (bool): Flag indicating whether to drop the seed.
         """
-        if drop == True:
+        if should_drop_seed:
             print(f"{self.drone_name} dropping the seed ...")
-            if self.drone_name == "Drone1":
-                self.client.simRunConsoleCommand("ce Print1")
-            elif self.drone_name == "Drone2":
-                self.client.simRunConsoleCommand("ce Print2")
+
+            command_mapping = {
+                "Drone1": "ce Print1",
+                "Drone2": "ce Print2",
+                "Drone3": "ce Print3"
+            }
+
+            command = command_mapping.get(self.drone_name)
+       
+            if command:
+                self.client.simRunConsoleCommand(command)
             else:
-                self.client.simRunConsoleCommand("ce Print3")
+                print(f"Error: Unsupported drone name '{self.drone_name}'")
+
         else:
             print(f"{self.drone_name} seed dropped successfully.")
 
