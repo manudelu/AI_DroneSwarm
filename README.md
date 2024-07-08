@@ -153,6 +153,8 @@ Here is the terminal window displaying the log for Drone1:
 
 ![](media/Console.PNG)
 
+Note that the waypoint are in global coordinates, while the Unreal Engine log displays the local coordinates of Drone1.
+
 
 
 
