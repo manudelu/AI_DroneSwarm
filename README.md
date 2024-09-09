@@ -41,6 +41,13 @@ Visit the Epic Games store and download `Unreal Engine 5.2`
 
 `Note`: Colosseum requires Unreal Engine 5.0 or higher. Currently, it does not support Unreal Engine 5.3, nor 5.4
 
+`Update`: You can now upgrade the project to work within Unreal Engine 5.3
+* Open .uproject file and look for the line "EngineAssociation" and make sure it reads like "EngineAssociation": "5.3".
+* Delete Plugins/Colosseum folder in your Unreal project's folder.
+* Go to your Colosseum repo folder and copy Unreal\Plugins folder to your Unreal project's folder.
+* Copy *.bat from Unreal\Environments\Blocks to your project's folder.
+* Run clean.bat followed by GenerateProjectFiles.bat.
+
 Step 2: Install Visual Studio
 ------------------
 To install Visual Studio 2022, follow these steps:
