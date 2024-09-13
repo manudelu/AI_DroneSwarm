@@ -39,7 +39,7 @@ Step 1: Install Unreal Engine
 ----------------
 Visit the Epic Games store and download `Unreal Engine 5.2`
 
-`Note`: Colosseum requires Unreal Engine 5.0 or later. Initially, the project did not support Unreal Engine versions 5.3 or 5.4, but it has since been updated to work with these and newer versions.
+`Note`: Colosseum requires Unreal Engine 5.0 or higher. When the project was initially developed, Colosseum did not support Unreal Engine 5.3 or 5.4. However, it has since been updated and now supports these newer versions as well.
 
 Step 2: Install Visual Studio
 ------------------
